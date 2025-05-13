@@ -4,7 +4,7 @@ Practicing mobile app development with Flutter (class notes)
 
 このリポジトリは、モバイルアプリ開発Cで学習した **Flutter** に関する記録やコードサンプルをまとめたものです。
 
-## 📚 内容
+## 内容
 
 - Flutterの基本構文とウィジェットの使い方
 - 状態管理の方法（`setState`、`Provider` など）
