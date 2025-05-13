@@ -1,2 +1,2 @@
 # flutter-practice-log
-モバイルアプリ開発の授業で学んだFlutterのまとめ
+Practicing mobile app development with Flutter (class notes)
