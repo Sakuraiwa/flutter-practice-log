@@ -1,0 +1,15 @@
+my_appプロジェクト(main.dart)の開き方
+    1.VSCodeのターミナル（またはWindowsコマンドプロンプト）を開く
+    2.my_appプロジェクトのディレクトリへ移動
+        このコマンドを実行：
+        cd "C:\Users\aoku1\OneDrive\デスクトップ\Dragonight_MobileApp\flutter-practice-log\my_app"
+    3.VSCode でそのフォルダを開く
+        続いてこのコマンドを実行：
+        code .
+            ※ 上記code コマンドが使えない場合は、次のようにして有効化できます：
+            VSCode を開く → Ctrl+Shift+P → 「Shell Command: Install 'code' command in PATH」を実行
+
+✅ これで何が良いの？
+VSCode が my_app を「Flutter プロジェクト」として正しく認識し、
+flutter run や flutter doctor などがスムーズに使えます。
+lib/main.dart で右上の ▶ 実行ボタンも使えるようになります。
