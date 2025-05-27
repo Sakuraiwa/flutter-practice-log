@@ -2,7 +2,7 @@ my_appプロジェクト(main.dart)の開き方
     1.VSCodeのターミナル（またはWindowsコマンドプロンプト）を開く
     2.my_appプロジェクトのディレクトリへ移動
         このコマンドを実行：
-        cd "C:\Users\aoku1\OneDrive\デスクトップ\Dragonight_MobileApp\flutter-practice-log\my_app"
+        cd "C:\Users\aoku1\eigowakawaka\flutter-practice-log\my_app"
     3.VSCode でそのフォルダを開く
         続いてこのコマンドを実行：
         code .
