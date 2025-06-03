@@ -1,7 +1,7 @@
 # flutter-practice-log
 Practicing mobile app development with Flutter (class notes)
-### Flutter学習ノート（モバイルアプリ開発C）
-### このリポジトリは、モバイルアプリ開発Cの授業で学んだFlutterの内容を記録したものです。コードサンプルや課題の実装を中心に構成しています。
+Flutter学習ノート（モバイルアプリ開発C）
+このリポジトリは、モバイルアプリ開発Cの授業で学んだFlutterの内容を記録したものです。コードサンプルや課題の実装を中心に構成しています。
 ---
 ## 内容
 - Dart言語の基礎
