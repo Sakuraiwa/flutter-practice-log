@@ -1,0 +1,54 @@
+
+Flutterアプリの基本構造
+
+  1.アプリケーションはmain関数として定義する。このmain関数では、runAppでウィジェットのインスタンスを実行する。
+        mainでアプリケーションの入り口にするのは他の言語と一緒だなあ
+
+  2.runApp関数では、StatelessWidget継承クラスのインスタンスを引数に指定する。これがアプリ本体のUIとなる。
+        実際のアプリ機能UIの記述がrunApp関数から始まるってこと
+          runApp(MyApp());  // ← ここで MyApp クラスのインスタンスを生成して渡す
+          この MyApp() は、new MyApp() と書くのと同じ意味です
+          （Dartでは new は省略できます）。
+  3.StatelessWidget継承クラスにはbuildメソッドを用意する。ここでマテリアルデザインのアプリクラスであるMaterialAppインタンスをreturnする。
+  4.MaterialAppの引数homeに、実際のアプリ内に表示するウィジェットを設定する。
+      home: ... に当たるのが、アプリで一番最初に表示したい中身をセットする場所です。
+
+全体の流れのイメージ
+  main() → runApp(MyApp()) → MyApp.build() → MaterialApp → home: 画面の中身
+
+
+
+// Flutterの基本UIライブラリをインポートします。
+import 'package:flutter/material.dart';
+
+// アプリのエントリーポイント（最初に実行される関数）です。
+void main() {
+  // runApp関数は、指定されたウィジェット（ここではMyApp）を画面に表示します。
+  runApp(MyApp());
+}
+
+// StatelessWidgetは「状態を持たない」ウィジェットの基本クラスです。
+// 状態とは、たとえばカウンターの値など、変化する情報のことです。
+// このクラスを継承して、MyAppという独自のウィジェットを定義しています。
+class MyApp extends StatelessWidget {
+  // buildメソッドは、画面に表示するUIを構築するためのものです。
+  // Flutterでは、すべてが「ウィジェット」として構成されます。
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      // アプリのタイトルです（内部的に使われるだけで、画面には表示されません）。
+      title: 'Flutter Demo',
+
+      // アプリのホーム画面に表示するウィジェットを指定します。
+      // 通常はScaffold（足場のようなレイアウト用ウィジェット）を使いますが、
+      // ここではシンプルにTextウィジェットのみを表示しています。
+      home: Text(
+        // 表示する文字列です。
+        'Hello, Flutter World!!',
+
+        // テキストのスタイルを設定しています。ここでは文字サイズを32にしています。
+        style: TextStyle(fontSize: 32.0),
+      ),
+    );
+  }
+}
