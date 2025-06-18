@@ -1,0 +1,71 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+  final title = 'Flutterサンプル';
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      home: MyHomePage(title: this.title),
+    );
+  }
+}
+
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({required this.title}) : super();
+  final String title;
+
+  @override
+  _MyHomePageState createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  static var _message = 'ok.';
+  static var _janken = <String>['グー', 'チョキ', 'パー'];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text('ToDo')),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisSize: MainAxisSize.max,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            Padding(
+              padding: EdgeInsets.all(20.0),
+              child: Text(
+                _message,
+                style: TextStyle(
+                  fontSize: 32.0,
+                  fontWeight: FontWeight.w400,
+                  fontFamily: "Roboto",
+                ),
+              ),
+            ),
+            TextButton(
+              onPressed: buttonPressed,
+              child: Padding(
+                padding: EdgeInsets.all(10.0),
+                child: Icon(Icons.add_circle, size: 50),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  void buttonPressed() {
+    setState(() {
+      _message = (_janken..shuffle()).first;
+    });
+  }
+}
