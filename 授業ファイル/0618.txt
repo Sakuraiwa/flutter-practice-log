@@ -1,0 +1,219 @@
+import 'package:flutter/material.dart';
+
+void main() => runApp(const MyApp());
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'ToDoリスト',
+      theme: ThemeData(primarySwatch: Colors.blue),
+      home: const TodoListPage(),
+    );
+  }
+}
+
+class Todo {
+  String title;
+  bool isDone;
+
+  Todo(this.title, {this.isDone = false});
+}
+
+class TodoListPage extends StatefulWidget {
+  const TodoListPage({super.key});
+
+  @override
+  State<TodoListPage> createState() => _TodoListPageState();
+}
+
+class _TodoListPageState extends State<TodoListPage> {
+  final List<Todo> _todoList = [];
+
+  void _addTodo() async {
+    final TextEditingController controller = TextEditingController();
+
+    final result = await showDialog<String>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('新しいToDoを追加'),
+        content: TextField(
+          controller: controller,
+          autofocus: true,
+          decoration: const InputDecoration(hintText: 'ToDoを入力してください'),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(),
+            child: const Text('キャンセル'),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.of(context).pop(controller.text);
+            },
+            child: const Text('追加'),
+          ),
+        ],
+      ),
+    );
+
+    if (result != null && result.trim().isNotEmpty) {
+      setState(() {
+        _todoList.add(Todo(result.trim()));
+      });
+    }
+  }
+
+  void _toggleTodoDone(int index) {
+    setState(() {
+      _todoList[index].isDone = !_todoList[index].isDone;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('ToDoリスト')),
+      body: ListView.builder(
+        itemCount: _todoList.length,
+        itemBuilder: (context, index) {
+          final todo = _todoList[index];
+          return CheckboxListTile(
+            title: Text(
+              todo.title,
+              style: TextStyle(
+                decoration: todo.isDone ? TextDecoration.lineThrough : null,
+              ),
+            ),
+            value: todo.isDone,
+            onChanged: (_) => _toggleTodoDone(index),
+          );
+        },
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _addTodo,
+        child: const Icon(Icons.add),
+      ),
+    );
+  }
+}
+
+
+
+
+// コメント付き写経
+
+import 'package:flutter/material.dart'
+
+// アプリのエントリーポイント（main関数）
+void main() => runApp(const MyApp());
+
+// アプリの全体ルートWidget
+class MyApp extends StatelessWidget{
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context){
+    return MaterialApp(
+      title: 'ToDoリスト',
+      theme ThemeData(primarySwatch: Colors.blue),
+      home: const TodoListPage();
+    );
+  }
+}
+
+// ToDoのデータ構造（タイトルと完了フラグ）
+class Todo {
+  String title; // タイトル（例：「買い物」など）
+  bool isDone; // 完了済みかどうかのフラグ
+
+  Todo(this.title,{this.isDone = false});
+}
+
+// TodoリストページのステートフルWidget
+class _TodoListPageState extends State<todoListPage>{
+  final List<Todo> _todoList = []; // Todoアイテムのリスト
+
+  // Todo追加ダイアログを表示し、使い処理を行う
+  void _addTodo() async{
+    final TextEditingController controller = TextEditingController();
+
+    // 入力ダイアログを表示して、ユーザーにToDoを入力させる
+    final result = await showDialog<String>(
+      context: context;
+      builder: (context) => AlertDialog(
+        title: const Text('新しいToDoを追加'),
+        content: textField(
+          controller: controller,
+          autofocus: true,
+          decoration: const InputDecoration(hintText: 'ToDoを入力してください'),
+        ), // TextField
+        actions:[
+          // キャンセルボタン：ダイアログを閉じるだけ
+          TextButton(
+            onPressd: () => Navigator.of(context).pop(),
+            child: const Text('キャンセル'),
+          ), // TextButton
+          // 追加ボタン：入力値を返してダイアログを閉じる
+          ElevatedButton(
+            onPressed: (){
+              Navigator.of(context).pop(controller.text);
+            };
+            child: const Text('追加'),
+          ), // ElevatedButton
+        ],
+      ), // AlertDialog
+    );
+
+    // 入力されたテキストが空でなければToDoを追加
+    if(result != null && result.trim().isNotEmpty){
+      setState((){
+        _todoList.add(Todo(result.trim()));
+      });
+    }
+  }
+
+  // チェックボックスのON/OFFを切り替える
+  void _toggleTodoDone(int index){
+    setState((){
+      _todoLost[index].isDone = !_todoList[index].isDone;
+    });
+  }
+
+  // メインUIの構築
+  @override
+  Widget build(BuildContext context){
+    return Scaffold(
+      // 画面上部のアプリバー
+      appBar: AppBar(title: const Text('ToDoリスト')),
+
+      // ToDoリストをListViewで表示
+      body: ListView.builder(
+        itemCount: _todoList.length, // リストの長さ
+        itemBuilder: (context, index){
+          final todo = _todoList[index];
+          return CheckboxListTitle(
+            title: Text(
+              todo.title;
+              style: TextStyle(
+                decoration: todo.isDone
+                ? TextDecoration.lineThrough
+                : null, // 完了なら取り消し線
+              ), // TextStyle
+            ), // Text
+            value: todo.isDone,
+            onChanged: (_) => _toggleTodoDone(index), // チェック切り替え
+          ); // CheckboxListTitele
+        },
+      ),
+
+      // ToDoを追加するためのボタン（画面右下）
+      FloatingActionButton: FloatingActionButton(
+        onPressed: _addTodo, // ボタンを押すとダイアログ表示
+        child: const Icon(Icons.add),
+      ), // floatingActionButton
+    );
+  }
+}
