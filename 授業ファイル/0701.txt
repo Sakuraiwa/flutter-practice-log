@@ -1,0 +1,127 @@
+Flutter 初心者向け 基礎テスト（統合版）
+
+---
+
+【4択問題】
+
+（既存の問1〜30 略）
+
+**問31**: Flutter アプリで現在の画面を閉じるには？
+A. Navigator.end()  B. Navigator.pop()  C. Navigator.close()  D. Navigator.back()
+答え: B
+
+**問32**: Dart で定数を定義するには？
+A. let  B. var  C. final  D. const
+答え: D
+
+**問33**: Dart におけるクラスの定義キーワードは？
+A. struct  B. class  C. object  D. new
+答え: B
+
+**問34**: Flutter の UI レイアウトにおける余白を追加するウィジェットは？
+A. Margin  B. Padding  C. Border  D. Container
+答え: B
+
+**問35**: 1行のテキスト入力に使うのは？
+A. TextArea  B. TextField  C. InputBox  D. SingleInput
+答え: B
+
+**問36**: 複数の画面（ページ）を管理する方法は？
+A. WidgetGroup  B. PageSwitcher  C. Navigator  D. LayoutManager
+答え: C
+
+**問37**: ウィジェットが再描画されることを何という？
+A. Refresh  B. Rebuild  C. Redraw  D. Update
+答え: B
+
+**問38**: Flutter において Widget の状態を管理するクラスは？
+A. State  B. WidgetState  C. UIState  D. LayoutState
+答え: A
+
+**問39**: Flutter アプリでダイアログを表示する関数は？
+A. showAlert()  B. displayDialog()  C. showDialog()  D. alertDialog()
+答え: C
+
+**問40**: Dart の `List` 型で要素数を取得するプロパティは？
+A. count  B. length  C. size  D. amount
+答え: B
+
+**問41**: Flutter において、`onPressed` が使われるウィジェットは？
+A. ListTile  B. ElevatedButton  C. Icon  D. Column
+答え: B
+
+**問42**: Dart において null チェック付きアクセスに使う記号は？
+A. ?  B. !!  C. ??  D. ?.
+答え: D
+
+**問43**: Flutter アプリで AppBar にアイコンを追加するには？
+A. leading または actions に指定する  B. body に指定する  C. drawer に指定する  D. header に指定する
+答え: A
+
+**問44**: Flutter アプリのホットリロードの特徴は？
+A. プロジェクトを終了する  B. 完全に再起動する  C. コード変更を即座にUIに反映  D. 状態をリセットする
+答え: C
+
+**問45**: Flutter アプリの main() 関数で呼び出す関数は？
+A. runApp()  B. startFlutter()  C. initApp()  D. buildUI()
+答え: A
+
+**問46**: Dart において例外を発生させるには？
+A. throw  B. raise  C. error  D. crash
+答え: A
+
+**問47**: Flutter において背景色を変えるプロパティは？
+A. background  B. backgroundColor  C. color  D. fill
+答え: B
+
+**問48**: Widget の子要素が1つしか取れないものは？
+A. Row  B. Column  C. Stack  D. Container
+答え: D
+
+**問49**: ListView などでスクロールを制御するには？
+A. ScrollController  B. PageNavigator  C. ViewportManager  D. ScrollView
+答え: A
+
+**問50**: Flutter で外部パッケージを導入するファイルは？
+A. build.gradle  B. pubspec.yaml  C. manifest.json  D. settings.yaml
+答え: B
+
+**問51**: Dart において null 合体演算子 `??` の意味は？
+A. 値がnullなら例外を投げる  B. nullならデフォルト値にする  C. nullを削除する  D. 複製する
+答え: B
+
+**問52**: Flutter で UI に影をつけるプロパティは？
+A. blur  B. elevation  C. shadowColor  D. depth
+答え: B
+
+**問53**: Dart の main() は何を返す？
+A. Widget  B. Future  C. void  D. int
+答え: C
+
+**問54**: StatelessWidget の `build()` メソッドの戻り値は？
+A. State  B. Widget  C. String  D. UI
+答え: B
+
+**問55**: Flutter の Column や Row で余白を均等に配置するには？
+A. alignment: center  B. mainAxisAlignment: spaceEvenly  C. spacing: equal  D. padding: uniform
+答え: B
+
+**問56**: Dart において「null 非許容」にするには？
+A. 型に ! を付ける  B. 型に ? を付ける  C. 型に \* を付ける  D. 型に \~ を付ける
+答え: A
+
+**問57**: Dart の Map にキーが含まれているか確認する方法は？
+A. .has()  B. .exists()  C. .containsKey()  D. .include()
+答え: C
+
+**問58**: Flutter で現在のテーマの色を取得するには？
+A. context.getThemeColor()  B. Theme.of(context).color  C. Theme.of(context).primaryColor  D. Colors.primary
+答え: C
+
+**問59**: Flutter の Text ウィジェットで文字を太字にするには？
+A. bold: true  B. fontWeight: FontWeight.bold  C. weight: heavy  D. font: bold
+答え: B
+
+**問60**: Dart において、関数の引数を省略可能にするには？
+A. \[] で囲む  B. {} で囲む  C. () を省略する  D. = null をつける
+答え: B
