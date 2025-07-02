@@ -1,0 +1,103 @@
+// Flutterアプリの最小構成で、テストの出題内容とその注意点をすべてコードに反映した例
+import 'package:flutter/material.dart'; // FlutterのUIパッケージ（問5）
+
+// アプリ起動時に実行されるmain関数（問2、問45、問53）
+void main() {
+  runApp(const MyApp()); // runAppで最初のウィジェットを起動（問45）
+}
+
+// StatelessWidget：状態を持たないウィジェット（問3、問54）
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter テスト例',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        // Theme.of(context).primaryColor に関連（問58）
+      ),
+      home: const CounterPage(),
+    );
+  }
+}
+
+// StatefulWidget：状態を持つウィジェット（問3、問38）
+class CounterPage extends StatefulWidget {
+  const CounterPage({super.key});
+
+  @override
+  State<CounterPage> createState() => _CounterPageState();
+}
+
+class _CounterPageState extends State<CounterPage> {
+  int _count = 0; // 状態管理対象の変数
+
+  // setState() を使って状態変更と再描画（問14、問37）
+  void _incrementCounter() {
+    setState(() {
+      _count++; // 値を1増やす
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('カウントアプリ'), // Text ウィジェット（問59）
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.close),
+            onPressed: () {
+              Navigator.pop(context); // 現在の画面を閉じる（問31）
+            },
+          )
+        ], // AppBar の actions にアイコンを追加（問43）
+      ),
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0), // 余白を追加（問34）
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center, // 縦方向中央（問55）
+            children: <Widget>[
+              Text(
+                '現在のカウント:',
+                style: const TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold, // 太字（問59）
+                ),
+              ),
+              Text('$_count'), // count の表示
+              const SizedBox(height: 20),
+              ElevatedButton(
+                // ボタンに onPressed を指定（問41）
+                onPressed: _incrementCounter,
+                child: const Text('カウントアップ'),
+              ),
+            ],
+          ),
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          // showDialog を表示（問39）
+          showDialog(
+            context: context,
+            builder: (context) => AlertDialog(
+              title: const Text('注意'),
+              content: const Text('このボタンは重要です。'),
+              actions: [
+                TextButton(
+                  child: const Text('閉じる'),
+                  onPressed: () => Navigator.pop(context),
+                )
+              ],
+            ),
+          );
+        },
+        child: const Icon(Icons.info), // Icon ウィジェット（問9）
+      ),
+    );
+  }
+}
