@@ -1,0 +1,64 @@
+HTML（ハイパーテキストマークアップランゲージ）
+マークダウン言語のチートシートよく見て復習しておいて下さいｗ
+
+flutterはフレームワークです
+
+
+
+教科書復習（p.50）
+    Chapter１
+        以下をコマンドプロンプトで打つと動きます
+        p.29
+        flutter doctor
+            flutter開発環境のせって確認ができる
+        p.46
+        flutter create プロジェクト名
+            flutterプロジェクトの作成ができる
+    Chapter２
+        p.50
+        Flutterプロジェクトの構成
+            プロジェクトのフォルダ類の内容
+                main.dartが書くのされているのは？ → libフォルダ！
+        p.379
+        名前付き引数による実装
+
+        p.51
+        部品：ウィジェット
+        構造：ウィジェットツリー
+        p.53
+        StatelessWidget（ステート・状態を持たない）
+        StatefulWidget（ステート・状態を持つ）
+            いずれかを継承してオリジナルのウィジェットを作っていく
+                これらの中に面倒な部分を実装してくれているので、
+                必要なメソッドを上書きしていけばよい。
+            →継承についてはp.391参考
+
+        構造の始まりとなるウィジェットはmain関数によって呼び出される
+            void main(){
+                runApp(ウィジェット)　//ここの引数で呼び出してんのは下の「クラス名」(通常MyApp)
+            }
+        オリジナルのウィジェットを作るときは
+            class クラス名 extends StatelessWidget{
+                @override
+                Widget build(BuildContext context){
+                    return ウィジェット // ここのウィジェットは通常MaterialApp
+                }
+            }
+            MaterialAppはだいたいtitleとhomeという名前付き引数のコンストラクタがあって値を渡されている、
+            その値もまた何らかのウィジェット
+        p.56
+        Scaffold(スキャフォールド)
+            AppBar(AppBarクラス)とbodyをコンストラクタに持つ
+        p.60
+        StatelessWidgetはその中にBuildを持つ
+        StatefulWidgetは常に一緒にいるStateクラスにBuildがあって
+        State(状態)の変化があるたびに再構築される
+        （setState((){値});）で毎回Stateの変更を伝えてあげないと画面に出ません
+
+        p.64
+            floatingActionButtonというウィジェットにはonPressedという値があるので
+            そこにはメソッドを渡す　ボタンが押されたら実行されるメソッド
+
+        p.60~64,68~70
+        Dataクラスを使うと複数の値をまとめて扱えるので、
+        一つのメソッドで一つの値しか返さないみたいなセオリーを無視できる
