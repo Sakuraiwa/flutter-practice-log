@@ -1,0 +1,3 @@
+MyHomePage({Key? key}) : super(key: key);
+    flutter studioからコピペすると?がなくてエラーになる
+fontSize double型で指定する
